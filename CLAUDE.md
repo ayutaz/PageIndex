@@ -10,20 +10,25 @@ PageIndex は、ベクトルDBやチャンキングを使わず、LLM推論ベ�
 
 ```bash
 # 依存関係インストール
-pip3 install --upgrade -r requirements.txt
+uv sync
 
 # PDF処理
-python3 run_pageindex.py --pdf_path /path/to/document.pdf
+uv run python run_pageindex.py --pdf_path /path/to/document.pdf
 
 # Markdown処理
-python3 run_pageindex.py --md_path /path/to/document.md
+uv run python run_pageindex.py --md_path /path/to/document.md
+
+# Markdown処理（サマリ生成あり）
+uv run python run_pageindex.py --md_path /path/to/document.md --if-add-node-summary yes
 ```
 
 テスト・lint用の専用コマンドは未整備。
 
 ## 環境設定
 
-`.env` ファイルに `CHATGPT_API_KEY` を設定（OpenAI APIキー）。
+- Python 3.11以上（`.python-version` で管理）
+- パッケージ管理は `uv` を使用（`pyproject.toml` + `uv.lock`）
+- `.env` ファイルに `CHATGPT_API_KEY` を設定（OpenAI APIキー）
 
 ## アーキテクチャ
 
