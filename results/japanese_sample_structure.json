@@ -1,0 +1,173 @@
+{
+  "doc_name": "japanese_sample",
+  "structure": [
+    {
+      "title": "Webアプリケーション開発ガイド",
+      "node_id": "0000",
+      "prefix_summary": "# Webアプリケーション開発ガイド\n\n本ドキュメントは、モダンなWebアプリケーション開発の基礎から応用までを解説する技術ガイドです。フロントエンドからバックエンド、インフラまで幅広くカバーします。",
+      "line_num": 1,
+      "nodes": [
+        {
+          "title": "第1章 フロントエンド開発",
+          "node_id": "0001",
+          "prefix_summary": "## 第1章 フロントエンド開発\n\nフロントエンド開発は、ユーザーが直接操作するUI部分を構築する技術領域です。",
+          "line_num": 5,
+          "nodes": [
+            {
+              "title": "1.1 HTML/CSSの基礎",
+              "node_id": "0002",
+              "summary": "### 1.1 HTML/CSSの基礎\n\nHTMLはWebページの構造を定義し、CSSはその見た目を制御します。セマンティックHTMLを使用することで、アクセシビリティとSEOの両方を向上させることができます。\n\n主要なHTML5要素：\n- `<header>` — ページやセクションのヘッダー\n- `<nav>` — ナビゲーションリンク\n- `<main>` — メインコンテンツ\n- `<article>` — 独立した記事\n- `<footer>` — フッター情報\n\nCSSではFlexboxとGridレイアウトが現代的なレイアウト手法の中心です。レスポンシブデザインにはメディアクエリを活用します。",
+              "line_num": 9
+            },
+            {
+              "title": "1.2 JavaScriptフレームワーク",
+              "node_id": "0003",
+              "prefix_summary": "### 1.2 JavaScriptフレームワーク\n\nモダンなフロントエンド開発では、コンポーネントベースのフレームワークが主流です。",
+              "line_num": 22,
+              "nodes": [
+                {
+                  "title": "1.2.1 React",
+                  "node_id": "0004",
+                  "summary": "#### 1.2.1 React\n\nReactは、Metaが開発したUIライブラリです。仮想DOMによる効率的な描画更新が特徴で、JSXという構文を使ってUIをコンポーネント単位で記述します。\n\n```javascript\nfunction Welcome({ name }) {\n  return <h1>こんにちは、{name}さん</h1>;\n}\n```\n\n状態管理にはuseStateフックやRedux、Zustandなどのライブラリが使われます。",
+                  "line_num": 26
+                },
+                {
+                  "title": "1.2.2 Vue.js",
+                  "node_id": "0005",
+                  "summary": "#### 1.2.2 Vue.js\n\nVue.jsは、段階的に導入可能なプログレッシブフレームワークです。テンプレート構文が直感的で、学習コストが低いのが特徴です。Composition APIの導入により、ロジックの再利用性が大幅に向上しました。",
+                  "line_num": 38
+                },
+                {
+                  "title": "1.2.3 パフォーマンス最適化",
+                  "node_id": "0006",
+                  "summary": "#### 1.2.3 パフォーマンス最適化\n\nフロントエンドのパフォーマンス最適化は、ユーザー体験に直結する重要な技術です。\n\n- **コード分割**: 動的インポートによる遅延読み込み\n- **画像最適化**: WebP/AVIF形式の採用、遅延読み込み\n- **キャッシュ戦略**: Service Workerによるオフライン対応\n- **バンドルサイズ削減**: Tree Shakingと不要な依存関係の除去",
+                  "line_num": 42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "第2章 バックエンド開発",
+          "node_id": "0007",
+          "prefix_summary": "## 第2章 バックエンド開発\n\nバックエンドは、データ処理やビジネスロジック、API提供を担うサーバーサイドの技術領域です。",
+          "line_num": 51,
+          "nodes": [
+            {
+              "title": "2.1 API設計",
+              "node_id": "0008",
+              "prefix_summary": "### 2.1 API設計\n\nRESTful APIとGraphQLは、現在のWeb開発で最も広く使われているAPI設計パターンです。",
+              "line_num": 55,
+              "nodes": [
+                {
+                  "title": "2.1.1 RESTful API",
+                  "node_id": "0009",
+                  "summary": "#### 2.1.1 RESTful API\n\nRESTは、HTTPメソッド（GET、POST、PUT、DELETE）を使ってリソースを操作するアーキテクチャスタイルです。\n\n設計原則：\n1. リソース指向のURL設計（`/api/users/{id}`）\n2. 適切なHTTPステータスコードの使用\n3. ページネーションとフィルタリング\n4. HATEOAS（ハイパーメディア駆動）",
+                  "line_num": 59
+                },
+                {
+                  "title": "2.1.2 GraphQL",
+                  "node_id": "0010",
+                  "summary": "#### 2.1.2 GraphQL\n\nGraphQLは、クライアントが必要なデータを正確に指定できるクエリ言語です。オーバーフェッチとアンダーフェッチの問題を解決します。\n\n```graphql\nquery {\n  user(id: \"123\") {\n    name\n    posts {\n      title\n      createdAt\n    }\n  }\n}\n```",
+                  "line_num": 69
+                }
+              ]
+            },
+            {
+              "title": "2.2 データベース設計",
+              "node_id": "0011",
+              "prefix_summary": "### 2.2 データベース設計\n\nデータベースの選択と設計は、アプリケーションのスケーラビリティとパフォーマンスに大きく影響します。",
+              "line_num": 85,
+              "nodes": [
+                {
+                  "title": "2.2.1 リレーショナルデータベース",
+                  "node_id": "0012",
+                  "summary": "#### 2.2.1 リレーショナルデータベース\n\nPostgreSQLやMySQLなどのRDBMSは、ACID特性を保証し、複雑なクエリやトランザクション処理に優れています。正規化によるデータ整合性の確保が基本設計方針です。",
+                  "line_num": 89
+                },
+                {
+                  "title": "2.2.2 NoSQLデータベース",
+                  "node_id": "0013",
+                  "summary": "#### 2.2.2 NoSQLデータベース\n\nMongoDBやRedisなどのNoSQLデータベースは、柔軟なスキーマと高い水平スケーラビリティを提供します。ドキュメント型、キーバリュー型、カラム型、グラフ型など、用途に応じた選択が重要です。",
+                  "line_num": 93
+                }
+              ]
+            },
+            {
+              "title": "2.3 認証・認可",
+              "node_id": "0014",
+              "summary": "### 2.3 認証・認可\n\nセキュアなアプリケーションには、適切な認証・認可の仕組みが不可欠です。\n\n- **JWT（JSON Web Token）**: ステートレスな認証トークン\n- **OAuth 2.0**: サードパーティ認証の標準プロトコル\n- **RBAC（ロールベースアクセス制御）**: 権限管理の基本パターン\n- **多要素認証（MFA）**: セキュリティ強化の必須要素",
+              "line_num": 97
+            }
+          ]
+        },
+        {
+          "title": "第3章 インフラストラクチャ",
+          "node_id": "0015",
+          "prefix_summary": "## 第3章 インフラストラクチャ\n\nアプリケーションの安定運用には、堅牢なインフラストラクチャが必要です。",
+          "line_num": 106,
+          "nodes": [
+            {
+              "title": "3.1 コンテナ技術",
+              "node_id": "0016",
+              "prefix_summary": "### 3.1 コンテナ技術\n\nDockerとコンテナオーケストレーションは、現代のインフラ管理の基盤技術です。",
+              "line_num": 110,
+              "nodes": [
+                {
+                  "title": "3.1.1 Docker",
+                  "node_id": "0017",
+                  "summary": "#### 3.1.1 Docker\n\nDockerは、アプリケーションとその依存関係をコンテナとしてパッケージングする技術です。開発環境と本番環境の差異を最小化し、一貫したデプロイを実現します。\n\n```dockerfile\nFROM node:20-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --production\nCOPY . .\nEXPOSE 3000\nCMD [\"node\", \"server.js\"]\n```",
+                  "line_num": 114
+                },
+                {
+                  "title": "3.1.2 Kubernetes",
+                  "node_id": "0018",
+                  "summary": "#### 3.1.2 Kubernetes\n\nKubernetesは、コンテナのオーケストレーションプラットフォームです。自動スケーリング、ローリングアップデート、自己修復機能を提供し、大規模なマイクロサービスアーキテクチャの運用を可能にします。",
+                  "line_num": 128
+                }
+              ]
+            },
+            {
+              "title": "3.2 CI/CDパイプライン",
+              "node_id": "0019",
+              "summary": "The partial document discusses the concept of CI/CD (Continuous Integration/Continuous Delivery), which automates the processes of building, testing, and deploying code changes. It highlights key CI/CD tools such as GitHub Actions, GitLab CI, and Jenkins, and outlines the fundamental stages of a CI/CD pipeline, including source code checkout, dependency installation, static analysis, testing (unit, integration, and E2E), artifact generation, and deployment to staging and production environments.",
+              "line_num": 132
+            },
+            {
+              "title": "3.3 監視とオブザーバビリティ",
+              "node_id": "0020",
+              "summary": "### 3.3 監視とオブザーバビリティ\n\nシステムの健全性を維持するには、包括的な監視とオブザーバビリティが重要です。\n\n- **メトリクス**: Prometheus + Grafanaによるシステムメトリクスの収集と可視化\n- **ログ**: ELKスタック（Elasticsearch, Logstash, Kibana）による集中ログ管理\n- **トレース**: OpenTelemetryによる分散トレーシング\n- **アラート**: PagerDutyやSlack連携による異常検知と通知",
+              "line_num": 151
+            }
+          ]
+        },
+        {
+          "title": "第4章 開発プラクティス",
+          "node_id": "0021",
+          "prefix_summary": "## 第4章 開発プラクティス\n\n高品質なソフトウェアを継続的に開発するためのプラクティスについて解説します。",
+          "line_num": 160,
+          "nodes": [
+            {
+              "title": "4.1 テスト戦略",
+              "node_id": "0022",
+              "summary": "### 4.1 テスト戦略\n\nテストピラミッドに基づいた効果的なテスト戦略を構築することが重要です。\n\n- **単体テスト**: 個々の関数やコンポーネントの動作検証\n- **統合テスト**: モジュール間の連携確認\n- **E2Eテスト**: ユーザーシナリオに沿った全体動作検証\n\nテストカバレッジは80%以上を目標とし、クリティカルパスは100%カバーすることを推奨します。",
+              "line_num": 164
+            },
+            {
+              "title": "4.2 コードレビュー",
+              "node_id": "0023",
+              "summary": "### 4.2 コードレビュー\n\nコードレビューは、コード品質の維持と知識共有の両方に寄与する重要なプラクティスです。\n\nレビューの観点：\n1. 機能要件の充足\n2. セキュリティ上の懸念\n3. パフォーマンスへの影響\n4. 可読性と保守性\n5. テストの十分性",
+              "line_num": 174
+            },
+            {
+              "title": "4.3 アジャイル開発",
+              "node_id": "0024",
+              "summary": "### 4.3 アジャイル開発\n\nスクラムやカンバンなどのアジャイル手法を用いて、変化に対応しやすい開発プロセスを構築します。スプリント計画、デイリースタンドアップ、振り返りなどのセレモニーを通じて、チームの継続的な改善を促進します。",
+              "line_num": 185
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

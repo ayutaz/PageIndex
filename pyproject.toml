@@ -1,0 +1,13 @@
+[project]
+name = "pageindex"
+version = "0.1.0"
+description = "LLM推論ベースの階層ツリーインデックスを構築するRAGシステム"
+requires-python = ">=3.11"
+dependencies = [
+    "openai==1.101.0",
+    "pymupdf==1.26.4",
+    "PyPDF2==3.0.1",
+    "python-dotenv==1.1.0",
+    "tiktoken==0.11.0",
+    "pyyaml==6.0.2",
+]
